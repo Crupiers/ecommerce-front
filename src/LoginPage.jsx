@@ -54,7 +54,7 @@ export function LoginPage() {
             CONTRASEÑA
           </label>
           <input
-            type="contrasenia"
+            type="password"
             className="form-control"
             name="contrasenia"
             required
