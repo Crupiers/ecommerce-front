@@ -41,7 +41,7 @@ function CategoriaRegistrar() {
     e.preventDefault();
 
     try {
-      /**
+      
       // Validar si existe una Categoria duplicada.
       const isDuplicate = await checkDuplicate();
       //console.log("ESTÁ DUPLICADO: "+isDuplicate)
@@ -49,7 +49,7 @@ function CategoriaRegistrar() {
         alert("LA CATEGORIA YA EXISTE");
         return;
       }
-       */
+       
         
       
 
