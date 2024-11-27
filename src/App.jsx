@@ -4,6 +4,7 @@ import ColorRegistrar from "./ColorRegistrar";
 import MarcaRegistrar from "./MarcaRegistrar";
 import CategoriaRegistrar from "./CategoriaRegistrar";
 import TamanioRegistrar from "./TamanioRegistrar";
+import ProductoRegistrar from "./ProductoRegistrar";
 import MarcaListar from "./MarcaListar";
 import ColorListar from "./ColorListar";
 import CategoriaListar from "./CategoriaListar";
@@ -33,6 +34,7 @@ function App() {
           <Route path="/tamanios/listar" element={<TamanioListar/>} />
           <Route path="/marcas/registrar" element={<MarcaRegistrar/> } />
           <Route path="/marcas/listar" element={<MarcaListar/> } />
+          <Route path="/productos/registrar" element={<ProductoRegistrar/> } />
 
           </Route>
 
