@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import {AXIOS_CLIENT} from "./lib/axiosClient"
 
 function CategoriaListar() {

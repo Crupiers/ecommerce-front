@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import {AXIOS_CLIENT} from "./lib/axiosClient"
 
 function TamanioRegistrar() {
@@ -30,7 +28,7 @@ function TamanioRegistrar() {
         `/tamanios/existe/${nombre}`
       );
       return response.data!=""; //si la data no tiene nada, el tamaño no está registrado
-    } catch (error) {
+    } catch {
       throw new Error("ERROR AL BUSCAR TAMAÑO DUPLICADO");
     }
   };

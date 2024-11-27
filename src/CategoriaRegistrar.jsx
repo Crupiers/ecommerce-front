@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import {AXIOS_CLIENT} from "./lib/axiosClient"
 
 function CategoriaRegistrar() {
@@ -30,7 +28,7 @@ function CategoriaRegistrar() {
         `/categorias/existe/${nombre}`
       );
       return response.data!="";
-    } catch (error) {
+    } catch {
       throw new Error("ERROR AL BUSCAR CATEGORÍA DUPLICADA");
     }
   };

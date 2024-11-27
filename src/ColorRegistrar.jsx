@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import {AXIOS_CLIENT} from "./lib/axiosClient"
 
 function ColorRegistrar() {
@@ -30,7 +28,7 @@ function ColorRegistrar() {
         `/colores/existe/${nombre}`
       );
       return !!response.data; 
-    } catch (error) {
+    } catch {
       throw new Error("ERROR AL BUSCAR COLOR DUPLICADO");
     }
   };

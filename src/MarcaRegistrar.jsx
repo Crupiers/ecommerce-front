@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import {AXIOS_CLIENT} from "./lib/axiosClient"
 
 function MarcaRegistrar() {
@@ -26,8 +25,7 @@ function MarcaRegistrar() {
       // Realizar una petición GET al backend para verificar si la marca ya existe.
       const response = await AXIOS_CLIENT.get(`/marcas/existe/${nombre}`)
       return !!response.data
-    } catch (error) {
-      // Tirar un error. En el ejemplo, el try/catch del `onSubmit` manejará el error si ocurriría.
+    } catch  {
       throw new Error("ERROR AL BUSCAR MARCA DUPLICADA");
     }
   };
