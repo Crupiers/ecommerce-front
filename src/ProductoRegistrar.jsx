@@ -79,6 +79,7 @@ function ProductoRegistrar() {
 
   const handleSelectColor = (color) => {
     setColor(color); 
+    setProducto({ ...producto, colorId: color.id });
     console.log("Color seleccionado:", color);
   };
 
@@ -102,6 +103,7 @@ const [tamanio, setTamanio] = useState();
 
 const handleSelectTamanio = (tamanio) => {
   setTamanio(tamanio); 
+  setProducto({ ...producto, tamanioId: tamanio.id });
   console.log("Tamaño seleccionado:", tamanio);
 };
 
@@ -125,6 +127,7 @@ const [categoria, setCategoria] = useState();
 
 const handleSelectCategoria = (categoria) => {
   setCategoria(categoria); // Actualiza la persona seleccionada
+  setProducto({ ...producto, categoriaId: categoria.id });
   console.log("Categoria seleccionada:", categoria);
 };
 /**------------------------------------------------------------------- */
@@ -147,6 +150,7 @@ const [marca, setMarca] = useState();
 
 const handleSelectMarca = (marca) => {
   setMarca(marca); // Actualiza la persona seleccionada
+  setProducto({ ...producto, marcaId: marca.id });
   console.log("Marca seleccionada:", marca);
 };
 
@@ -237,16 +241,6 @@ const handleSelectMarca = (marca) => {
           </Dropdown.Item>
         ))}
       </DropdownButton>
-
-      <input
-            type="int"
-            className="form-control"
-            id="colorId"
-            name="colorId"
-            required={true}
-            value={colorId}
-            onChange={(e) => onInputChange(e)}
-          />
       </div>
 
 {/**------------------------------------------------------------------- */}
@@ -265,15 +259,6 @@ const handleSelectMarca = (marca) => {
         ))}
       </DropdownButton>
 
-      <input
-            type="int"
-            className="form-control"
-            id="tamanioId"
-            name="tamanioId"
-            required={true}
-            value={tamanioId}
-            onChange={(e) => onInputChange(e)}
-          />
       </div>
 
 {/**------------------------------------------------------------------- */}
@@ -292,15 +277,7 @@ const handleSelectMarca = (marca) => {
         ))}
       </DropdownButton>
 
-      <input
-            type="int"
-            className="form-control"
-            id="categoriaId"
-            name="categoriaId"
-            required={true}
-            value={categoriaId}
-            onChange={(e) => onInputChange(e)}
-          />
+     
       </div>
 {/**------------------------------------------------------------------- */}
       <div>
@@ -318,15 +295,7 @@ const handleSelectMarca = (marca) => {
         ))}
       </DropdownButton>
 
-      <input
-            type="int"
-            className="form-control"
-            id="marcaId"
-            name="marcaId"
-            required={true}
-            value={marcaId}
-            onChange={(e) => onInputChange(e)}
-          />
+     
       </div>
 
       </form>
