@@ -1,6 +1,2 @@
 #ignoro el directorio donde se guardan todos los modulos para node funcione con el proyecto
 node_modules/
-
-#ignoro el archivo de los paquetes
-package-lock.json
-package.json
