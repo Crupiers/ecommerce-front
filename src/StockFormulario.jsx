@@ -2,38 +2,31 @@ import React, { useState } from "react";
 import { AXIOS_CLIENT } from "./lib/axiosClient";
 
 function StockFormulario() {
-  const [Producto, setProducto] = useState({
-    id: "",
+  const [MovimientoStock, setMovimientoStock] = useState({
+    productoId: 0,
     motivo: "",
     cantidad: "",
+    tipoMovimiento: ""
   });
 
-  const { id, motivo, cantidad } = Producto;
+  const { productoId, motivo, cantidad, tipoMovimiento } = MovimientoStock;
 
   const onInputChange = (e) => {
     if (e?.target?.name === undefined || e?.target?.value === undefined) return;
-    setProducto({ ...Producto, [e.target.name]: e.target.value });
+    setMovimientoStock({ ...MovimientoStock, [e.target.name]: e.target.value });
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
-    if (!id || !motivo || !cantidad) {
-      alert("Todos los campos son obligatorios.");
-      return;
-    }
-
-    const payload = {
-      motivo,
-      cantidad: parseInt(cantidad, 10), // Convertir cantidad a número entero
-    };
+    console.log(MovimientoStock);
+    console.log(productoId);
 
     try {
-      await AXIOS_CLIENT.put(`/productos/actualizarStock/${parseInt(id, 10)}`, payload);
+      await AXIOS_CLIENT.post(`/movimientoStock/${productoId}` , MovimientoStock);
       alert("STOCK MODIFICADO CON ÉXITO");
     } catch (error) {
-      console.error("Error al modificar el stock:", error.response?.data || error.message);
-      alert(`ERROR AL MODIFICAR STOCK: ${error.response?.data?.message || error.message}`);
+      console.error("Error al modificar el stock:" );
+      alert(`ERROR AL MODIFICAR STOCK `);
     }
   };
 
@@ -42,20 +35,44 @@ function StockFormulario() {
       <div className="container text-center">
         <h3>FORMULARIO STOCK</h3>
       </div>
-
       <form onSubmit={(e) => onSubmit(e)}>
         <div className="mb-3">
-          <label htmlFor="id" className="form-label">ID PRODUCTO</label>
+          <label htmlFor="productoId" className="form-label">PRODUCTO</label>
           <input
             type="number"
             className="form-control"
-            id="id"
-            name="id"
+            id="productoId"
+            name="productoId"
             required={true}
-            value={id}
+            value={productoId}
             onChange={(e) => onInputChange(e)}
           />
         </div>
+
+        <div className="mb-3">
+          <label htmlFor="tipoMovimiento" className="form-label">Tipo Movimiento</label>
+          <div>
+            <input 
+            type="radio" 
+            name="tipoMovimiento" 
+            value="ENTRADA" 
+            id="entrada"
+            onChange={(e) => onInputChange(e)}
+             />
+            <label htmlFor="entrada">Entrada</label>
+          </div>
+          <div>
+            <input 
+            type="radio" 
+            name="tipoMovimiento" 
+            value="SALIDA" 
+            id="salida" 
+            onChange={(e) => onInputChange(e)}
+            />
+            <label htmlFor="salida">Salida</label>
+          </div>
+        </div>
+
         <div className="mb-3">
           <label htmlFor="cantidad" className="form-label">CANTIDAD AJUSTADA</label>
           <input
@@ -69,7 +86,7 @@ function StockFormulario() {
           />
         </div>
         <div className="mb-3">
-          <label htmlFor="motivo" className="form-label">RAZÓN AJUSTE STOCK</label>
+          <label htmlFor="motivo" className="form-label">RAZÓN AJUSTE</label>
           <input
             type="text"
             className="form-control"
@@ -80,7 +97,7 @@ function StockFormulario() {
             onChange={(e) => onInputChange(e)}
           />
         </div>
-
+        
         <button type="submit" className="btn btn-primary">MODIFICAR</button>
       </form>
     </div>

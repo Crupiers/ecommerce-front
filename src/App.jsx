@@ -34,7 +34,7 @@ function App() {
           <Route path="/tamanios/listar" element={<TamanioListar/>} />
           <Route path="/marcas/registrar" element={<MarcaRegistrar/> } />
           <Route path="/marcas/listar" element={<MarcaListar/> } />
-          <Route path="/productos/actualizarStock" element={<StockFormulario/> } />
+          <Route path="/productos/movimientoStock" element={<StockFormulario/> } />
           </Route>
 
           <Route path={"/auth/*"} element={<AuthRoutes />} />
