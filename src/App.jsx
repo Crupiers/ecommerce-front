@@ -11,6 +11,7 @@ import TamanioListar from "./TamanioListar";
 import {ProtectedRoute} from "./ProtectedRoute";
 import {AuthRoutes} from "./AuthRoutes";
 import {AppLayout} from "./AppLayout";
+import StockFormulario from "./StockFormulario";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
           <Route path="/tamanios/listar" element={<TamanioListar/>} />
           <Route path="/marcas/registrar" element={<MarcaRegistrar/> } />
           <Route path="/marcas/listar" element={<MarcaListar/> } />
-
+          <Route path="/productos/actualizarStock" element={<StockFormulario/> } />
           </Route>
 
           <Route path={"/auth/*"} element={<AuthRoutes />} />

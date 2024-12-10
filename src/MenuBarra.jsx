@@ -47,6 +47,12 @@ export function MenuBarra() {
                 </NavDropdown.Item>
               </NavDropdown>
 
+              <NavDropdown title="STOCK" id="basic-nav-dropdown-4">
+                <NavDropdown.Item as={Link} to="/productos/actualizarStock">
+                  FORMULARIO
+                </NavDropdown.Item>
+              </NavDropdown>
+
             </Nav>
           </Navbar.Collapse>
         </Container>
